@@ -45,12 +45,14 @@ RSpec.feature "Projects", type: :feature do
   end
 
   context "Remove existing project" do
-    let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
-      visit projects_path
-      click_link "Destroy this project"
-      expect(page).to have_content("Project was successfully destroyed")
-      expect(Project.count).to eq(0)
+    visit new_project_path
+    fill_in "Description", with: "Test description"
+    fill_in "Title", with: "Test title"
+    click_button "Create Project"
+    click_button "Destroy this project"
+    expect(page).to have_content("Project was successfully destroyed")
+    expect(Project.count).to eq(0)
     end
   end
 end
