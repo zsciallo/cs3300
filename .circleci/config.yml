@@ -30,5 +30,4 @@ workflows:
       - deploy:
           requires:
             - build
-@zsciallo
  
