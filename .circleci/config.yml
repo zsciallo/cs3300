@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: rspec
-          command: bundle install && bundle exec rake db:drop && bundle exec rake db:create && rake db:migrate && bundle exec rspec
+          command: bundle install && bundle exec rspec
   deploy:
     executor: heroku/default
     steps:
