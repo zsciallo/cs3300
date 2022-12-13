@@ -1,4 +1,4 @@
-<p class="navbar-text float-right">
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -7,12 +7,14 @@
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
-</p>
+</div>
 
 <p style="color: green"><%= notice %></p>
-
+<div class = "text-center">
 <h1>Projects</h1>
 
+<div class="row">
+<div class="col">
 <div id="projects">
   <% @projects.each do |project| %>
     <%= render project %>
@@ -21,5 +23,9 @@
     </p>
   <% end %>
 </div>
+</div>
 
+<% if user_signed_in? %>
 <%= link_to "New project", new_project_path %>
+<% end %>
+</div>

@@ -87,3 +87,5 @@ group :test do
   gem "webdrivers"
   gem 'simplecov', require: false
 end
+
+gem "cssbundling-rails", "~> 1.1"
